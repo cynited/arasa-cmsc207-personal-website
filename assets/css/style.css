@@ -1,0 +1,392 @@
+/* ABRI FATFACE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+/* POPPINS FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --first-color: #6429EF;
+    --second-color: #E7DBDB;
+    --third-color: #FFFFFF;
+    --black-color: #000000;
+    --dark-blue: #372461;
+    --bg-color: #FFFFFF;
+    --blur-element-color: #E7DBDB; 
+    --shadow-2: 0 0 20px 5px rgb(232, 219, 219);
+}
+body.dark-mode{
+    --black-color: #FFFFFF;
+    --dark-blue: #6429EF;
+    --bg-color: #222;
+    --blur-element-color: #555; 
+    --shadow-2: 0 0 20px 5px rgba(232, 219, 219, 0.3);
+}
+body{
+    background-color: var(--bg-color);
+    transition: .3s;
+}
+.wrapper{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    filter: blur(50px);
+    z-index: 1;
+}
+.wrapper::before{
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: var(--blur-element-color);
+    border-radius: 50%;
+    z-index: 0;
+}
+.wrapper::after{
+    content: '';
+    position: absolute;
+    top: 160px;
+    right: 10vw;
+    width: 100px;
+    height: 100px;
+    background-color: var(--blur-element-color);
+    border-radius: 50%;
+    z-index: 0;
+}
+.wrapper .circle-1{
+    position: absolute;
+    bottom: 100px;
+    left: 60%;
+    width: 50px;
+    height: 50px;
+    background-color: var(--first-color);
+    border-radius: 50%;
+    z-index: 0;
+}
+header{
+    position: fixed;
+    font-family: 'Abril Fatface', serif;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8vw;
+    z-index: 50;
+}
+.logo span{
+    font-size: 35px;
+    color: var(--black-color);
+}
+.nav_menu{
+    display: flex;
+    list-style-type: none;
+}
+.nav-list{
+    padding: 0 30px;
+}
+.nav-link{
+    position: relative;
+    text-decoration: none;
+    color: var(--black-color);
+    font-size: 18px;
+    transition: .3s;
+}
+.nav-link:hover{
+    color: var(--first-color);
+}
+.nav-link::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--first-color);
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s;
+}
+.nav-link:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+.nav_button{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.btn{
+    padding: 0 24px;
+    height: 45px;
+    border: none;
+    border-radius: 50px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: opacity .3s;
+}
+.btn:hover{
+    opacity: 0.85;
+}
+.hire-me-btn{
+    font-family: 'Abril Fatface';
+    background: var(--second-color);
+}
+.nav_button span{
+    color: var(--black-color);
+    cursor: pointer;
+}
+.nav_button .menu-toggle{
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+/* ===== Hero section ===== */
+.hero{
+    position: relative;
+    display: flex;
+    padding: 0 8vw;
+    width: 100%;
+    height: 100vh;
+    z-index: 5;
+}
+.col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+
+}
+.hero-name{
+    font-family: 'Abril Fatface';
+    font-size: 50px;
+    color: var(--black-color);
+    animation: fade-right-1 2s var(--o-animation-delay) forwards;
+    --o-animation-delay: 200ms;
+    opacity: 0;
+}
+.hero-description{
+    font-family: 'Poppins', sans-serif;
+    padding-block: 20px 30px;
+    width: 500px;
+    color: var(--black-color);
+    animation: fade-right-1 2s var(--o-animation-delay) forwards;
+    --o-animation-delay: 400ms;
+    opacity: 0;
+}
+.hero-buttons{
+    display: flex;
+    gap: 20px;
+    animation: fade-right-1 2s var(--o-animation-delay) forwards;
+    --o-animation-delay: 600ms;
+    opacity: 0;
+}
+.download-btn{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Poppins';
+    background: var(--first-color);
+    color: var(--third-color);
+    box-shadow: 0 0 20px rgba(101, 41, 240, 0.5);
+}
+.btn.play-btn{
+    padding: 0;
+    width: 45px;
+    background-color: var(--second-color);
+    box-shadow: var(--shadow-2);
+}
+.play-btn .bx-play{
+    font-size: 24px;
+}
+.hero-social-icons{
+    position: absolute;
+    bottom: 80px;
+    display: flex;
+    gap: 50px;
+}
+.hero-social-icons i{
+    opacity: 0;
+    font-size: 24px;
+    color: var(--black-color);
+    animation: fade-down 1s ease-out forwards;
+    animation-delay: var(--o-animation-delay);
+    cursor: pointer;
+    transition: color .3s;
+}
+.hero-social-icons i:hover{
+    color: var(--first-color);
+}
+.bxl-github{
+    --icon-count: -20px;
+    --o-animation-delay: 0;
+}
+.bxl-dribbble{
+    --icon-count: -50px;
+    --o-animation-delay: 200ms;
+}
+.bxl-twitter{
+    --icon-count: -80px;
+    --o-animation-delay: 400ms;
+}
+.bxl-facebook-circle{
+    --icon-count: -100px;
+    --o-animation-delay: 600ms;
+}
+/* ====== Hero Image section ===== */
+.col-2{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+.img-container{
+    /* position: relative; */
+    width: 400px;
+    height: 405px;
+    background: var(--first-color);
+    border-radius: 46% 54% 34% 66% / 54% 61% 39% 46%;
+    overflow: hidden;
+    animation: fade-left-1 1.4s ease-out;
+}
+.img-container::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%);
+    width: 410px;
+    height: 415px;
+    border: 2px solid var(--first-color);
+    border-radius: 46% 54% 34% 66% / 54% 61% 39% 46%;
+    
+}
+.hero-image{
+    height: 405px;
+}
+/* ===== Animations ==== */
+@keyframes fade-down {
+    from{
+        transform: translateY(var(--icon-count));
+        opacity: 0;
+    }
+    to{
+    opacity: 1;
+    }
+}
+@keyframes fade-right-1 {
+    from{
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to{
+    opacity: 1;
+    }
+}
+@keyframes fade-left-1 {
+    from{
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to{
+    opacity: 1;
+    }
+}
+
+/* ===== Responsive Design ===== */
+
+@media screen and (max-width: 1052px) {
+    header, .hero{
+       padding: 0 4vw;
+    }
+}
+@media screen and (max-width: 962px) {
+    header{
+        position: relative;
+    }
+    .nav_button .menu-toggle{
+        display: block;
+    }
+    .nav_menu.display-menu{
+        display: flex;
+    }
+    .nav_menu{
+        display: none;
+        position: absolute;
+        top: 100px;
+        right: 0;
+        flex-direction: column;
+        align-items: center;
+        background-color: #ffffffd6;
+        backdrop-filter: blur(20px);
+        width: 300px;
+        padding: 40px 0;
+        border-radius: 20px 0 20px 20px;
+        box-shadow: -8px 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .nav-list{
+        margin: 20px 0;
+    }
+    .nav-link{
+        color: #000000;
+    }
+    .hero{
+       flex-direction: column;
+       padding-top: 100px;
+    }
+    .col{
+        width: 100%;
+    }
+    .col-1{
+        order: 2;
+    }
+    .col-2{
+        order: 1;
+        align-items: center;
+        margin-top: 7px;
+    }
+    .img-container::before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 410px;
+        height: 415px;  
+    }
+    .hero-social-icons{
+        position: static;
+        display: flex;
+        gap: 50px;
+        margin: 60px 0;
+    }
+}
+@media  screen and (max-width: 514px) {
+    .hero, header{
+        padding: 0 6vw;
+    }
+    .hire-me-btn{
+        display: none;
+    }
+    .hero-name{
+        font-size: 40px;
+    }
+    .img-container{
+        width: 270px;
+        height: 275px;
+    }
+    .img-container::before{
+        width: 280px;
+        height: 285px;
+    }
+    .hero-image{
+        height: 275px;
+    }
+    .hero-description{
+        width: inherit;
+    }
+}
